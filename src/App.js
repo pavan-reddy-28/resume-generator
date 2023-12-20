@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
+import { LeftCmponent, MainComponent, RightComponent } from './Components/Styles/styles';
+import { MyDocument } from './Components/PdfComponent/MyDocument';
+import FormCard from './Components/PdfComponent/FormCard';
+import { Provider, useSelector } from 'react-redux';
+
+
 
 function App() {
+  const {userData} = useSelector((state)=>state.user)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <MainComponent>
+      <LeftCmponent>
+<FormCard/>
+      </LeftCmponent>
+      <RightComponent>
+<PDFViewer  width={'600px'}>
+  
+   <MyDocument userData={userData} />
+  
+  </PDFViewer>
+  
+      </RightComponent>
+      <PDFDownloadLink document={<MyDocument  userData={userData} />} fileName="somename.pdf">
+      {({ blob, url, loading, error }) =>
+        loading ? 'Loading document...' : 'Download now!'
+      }
+    </PDFDownloadLink>
+     </MainComponent>
     </div>
   );
 }
