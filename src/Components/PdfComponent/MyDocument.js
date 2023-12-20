@@ -53,13 +53,13 @@ const styles = StyleSheet.create({
     width: '16%'
   },
   userRole:{
-    fontSize: '11px',
+    fontSize: '10px',
     fontFamily: 'Helvetica',
     marginLeft: '8px',
     width: '74%'
   },
   userExperienceDuration:{
-    fontSize: '11px',
+    fontSize: '10px',
     fontFamily: 'Helvetica',
     textAlign:'right',
     width: '26%'
@@ -105,6 +105,31 @@ export const MyDocument = ({ userData }) => {
             <View>
             <Text style={styles.professionalHeaderSection}>PROFESSIONAL EXPERIENCE</Text>
             <View style={{ 'display': 'flex', flexDirection: 'column' ,marginTop:'2px'}}>
+                <View style={{ 'display': 'flex', flexDirection: 'row' }}>
+                  <Text style={styles.companyTitle}><Text>DBS Technology Services India Private Limited</Text></Text>
+                  <Text style={styles.companyLocation}>Hyderabad, India</Text>
+                </View>
+
+                <View style={{ 'display': 'flex', flexDirection: 'row' }}>
+                  <Text style={styles.userRole}>Mobile Web Application Developer</Text>
+                  <Text style={{...styles.userExperienceDuration}}  >September 2020 - May 2021</Text>
+                </View>
+                <View style={{ 'display': 'flex', flexDirection: 'row' }}>
+                  <Text style={styles.userRole}>Digi-Taiwan</Text>
+                 
+                </View>
+                <View style={{ 'display': 'flex', flexDirection: 'column', marginTop: '2px' }}>
+      {
+        Object.keys(userSkills).map((obj,index) =>(
+          <View  key={index} style={{ 'display': 'flex', flexDirection: 'row', marginTop: '2px',...styles.skillsListTitleSection}} >
+        <Bullet/> 
+            <Text style={styles.skillsListDataSection}>  {userSkills[obj]} </Text>
+      </View>
+        ))
+      }
+    </View>
+              </View>
+              <View style={{ 'display': 'flex', flexDirection: 'column' ,marginTop:'2px'}}>
                 <View style={{ 'display': 'flex', flexDirection: 'row' }}>
                   <Text style={styles.companyTitle}><Text>DBS Technology Services India Private Limited</Text></Text>
                   <Text style={styles.companyLocation}>Hyderabad, India</Text>
