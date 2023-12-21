@@ -1,24 +1,25 @@
 import React from 'react'
 import { Text, View, StyleSheet } from '@react-pdf/renderer';
 import Bullet from '../utils/Bullet';
+import HorizontalLine from '../utils/HorizontalLine';
 
 
 const styles = StyleSheet.create({
     educationHeaderSection: {
-        fontSize: '12px',
+        fontSize: '11px',
         color: '#4371c4',
         fontFamily: 'Helvetica-Bold',
         
       },
       univNameSection: {
-        fontSize: '10px',
+        fontSize: '9px',
         fontFamily: 'Helvetica-Bold',
        
         marginLeft: '8px',
         width: '75%'
       },
       univDuriationSection: {
-        fontSize: '10px',
+        fontSize: '9px',
         
         width: '25%',
         fontFamily: 'Helvetica',
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
         textAlign:'right'
       },
       univMajorSection: {
-        fontSize: '10px',
+        fontSize: '9px',
         fontFamily: 'Helvetica',
         marginLeft: '20px',
         width: '100%'
@@ -37,9 +38,10 @@ const styles = StyleSheet.create({
 
 function EducationSection() {
   return (
-    <View>
+    <View style={{marginTop:'1px'}}>
               <Text style={styles.educationHeaderSection}>EDUCATION</Text>
-              <View style={{ 'display': 'flex', flexDirection: 'column' ,marginTop:'2px'}}>
+              <HorizontalLine/>
+              <View style={{ 'display': 'flex', flexDirection: 'column' }}>
                 <View style={{ 'display': 'flex', flexDirection: 'row' }}>
                   <Text style={styles.univNameSection}> <Text > University Of Central Missouri , Warrensburg missouri</Text></Text>
                   <Text style={styles.univDuriationSection}>August 2022 - December 2023</Text>

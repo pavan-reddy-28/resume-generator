@@ -6,40 +6,39 @@ const styles = StyleSheet.create({
     headreSection: {
         color:'black',
         textAlign:'center',
-        height:'6%',
-       
+        height:'4%',
       },
       userNameSection:{
-        fontSize:'24px',
+        fontSize:'20px',
         // fontFamily: 'Calibri',
        
       },
       userInfoSection:{
-        fontSize:'10px',
+        fontSize:'9px',
       },
 })
-function HeaderSection() {
+function HeaderSection({userDetails}) {
   return (
     <View style={styles.headreSection}>
     <View>
-    <Text style={styles.userNameSection} >{"Enter Data"}</Text>
+    <Text style={styles.userNameSection} >{userDetails.name}</Text>
     </View>
      <View style={{display:'flex',flexDirection:'row', marginLeft:'auto',marginRight:'auto'}}>
      <Text style={styles.userInfoSection} >
      Contact: 
-     913 913 9999
+     {userDetails.contact}
       | </Text>
 
       <Text style={styles.userInfoSection} >
-     Email: 
-     <Link src="mailto:youremail@example.com" style={styles.link}>
-        youremail@example.com 
+     Email:  
+     <Link src={`mailto:${userDetails.email}`}  style={{...styles.link,textDecoration:'none'}}>
+        {userDetails.email}
       </Link>
       </Text>
       <Text style={styles.userInfoSection} >
-     | LinkedIn: 
-     <Link src="https://www.linkedin.com/in/saipavanreddypogula/" style={styles.link}>
-     saipavanreddypogula
+     | LinkedIn:  
+     <Link src={userDetails.linkedInURL} style={{...styles.link,textDecoration:'none'}}>
+     {userDetails.displayText}
       </Link>
        </Text>
      </View>

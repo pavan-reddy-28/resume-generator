@@ -3,26 +3,28 @@ import { LeftCmponent, MainComponent, RightComponent } from './Components/Styles
 import { MyDocument } from './Components/PdfComponent/MyDocument';
 import FormCard from './Components/PdfComponent/FormCard';
 import { Provider, useSelector } from 'react-redux';
+import UploadComponent from './Components/DisplayComponent/UploadComponent';
 
 
 
 function App() {
-  const {userData} = useSelector((state)=>state.user)
+  const {userDetails} = useSelector((state)=>state.user)
   return (
     <div className="App">
      <MainComponent>
       <LeftCmponent>
+        {/* <UploadComponent/> */}
 <FormCard/>
       </LeftCmponent>
       <RightComponent>
 <PDFViewer  width={'600px'}>
   
-   <MyDocument userData={userData} />
+   <MyDocument userDetails={userDetails} />
   
   </PDFViewer>
   
       </RightComponent>
-      <PDFDownloadLink document={<MyDocument  userData={userData} />} fileName="somename.pdf">
+      <PDFDownloadLink document={<MyDocument  userDetails={userDetails} />} fileName="somename.pdf">
       {({ blob, url, loading, error }) =>
         loading ? 'Loading document...' : 'Download now!'
       }

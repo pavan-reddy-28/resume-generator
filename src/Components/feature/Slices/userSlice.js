@@ -3,7 +3,13 @@ import {  createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     loading:false,
-    userData:{"name":""},
+    userDetails:{
+        name: '',
+        contact: '',
+        email: '',
+        linkedInURL: '',
+        displayText: '',
+    },
     error:''
 }
 
@@ -17,7 +23,7 @@ const userSlice = createSlice({
     initialState,
     reducers:{
         updateUserIfo: (state,action) =>{
-            state.userData={ ...state.userData ,...action.payload}
+            state.userDetails={ ...state.userDetails ,...action.payload}
         }
     }
 })

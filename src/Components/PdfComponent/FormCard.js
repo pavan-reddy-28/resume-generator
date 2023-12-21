@@ -17,7 +17,7 @@ export default function FormCard() {
       <CardHeader
        
        
-        title="Enter Data"
+        title="User Details"
        
       />
     
