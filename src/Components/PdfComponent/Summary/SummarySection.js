@@ -19,12 +19,12 @@ const styles = StyleSheet.create(
     }
 )
 
-function SummarySection() {
+function SummarySection({summary}) {
   return (
     <View>
     <u><Text style={styles.titleSection}>SUMMARY</Text></u>
     <HorizontalLine/>
-    <Text style={styles.textSection}>{'Professional with nearly 3 years of experience in Full Stack web development with excellent knowledge of Spring Boot, React JS, and Amazon Web Services. Optimized websites and developed microservices with resilient UI components, and Micro Frontend Libraries (MFEs) for global banking systems. '}</Text>
+    <Text style={styles.textSection}>{summary}</Text>
     </View>
   )
 }

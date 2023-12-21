@@ -6,6 +6,7 @@ import Bullet from './utils/Bullet';
 import EducationSection from './Education/EducationSection';
 import SkillsSection from './Skills/SkillsSection';
 import ExperienceSection from './Experience/ExperienceSection';
+import { useSelector } from 'react-redux';
 
 // Create styles
 
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
 // Create Document Component
 
 
-export const MyDocument = ({ userDetails }) => {
+export const MyDocument = ({ userDetails,summary }) => {
   console.log("logger pavan ", userDetails)
   const [userSkills,setUserSkills]=React.useState({
     "Programming Languages":"Java 8, TypeScript, JavaScript.",
@@ -50,13 +51,14 @@ export const MyDocument = ({ userDetails }) => {
     "Tools and Technologies":`Amazon Web Services (AWS), Git version control, Jira, Splunk, Confluence, Postman, S3 Bucket, Swagger, SharePoint, Jenkins, CI/CD Pipeline, VS Code, Eclipse, Notepad++, Linux, MACOSX, Windows.`,
   
   })
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.mainSection}>
           <HeaderSection  userDetails={userDetails}/>
           <View style={styles.bodySection}>
-            <SummarySection />
+            <SummarySection summary={summary}/>
             <EducationSection />
             <SkillsSection/>
            

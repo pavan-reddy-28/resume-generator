@@ -4,6 +4,8 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import UserHeaderData from './UserHeaderData';
+import UserInfoInputSection from '../InputComponents/UserInfo/UserInfoInputSection';
+import UserSummarySection from '../InputComponents/Summary/SummarySection';
 
 
 
@@ -22,7 +24,8 @@ export default function FormCard() {
       />
     
       <CardContent>
-     <UserHeaderData/>
+     <UserInfoInputSection/>
+     <UserSummarySection/>
       </CardContent>
      
      

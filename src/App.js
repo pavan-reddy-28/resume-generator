@@ -8,7 +8,8 @@ import UploadComponent from './Components/DisplayComponent/UploadComponent';
 
 
 function App() {
-  const {userDetails} = useSelector((state)=>state.user)
+  const {userDetails,userSummary} = useSelector((state)=>state.user)
+  
   return (
     <div className="App">
      <MainComponent>
@@ -19,7 +20,7 @@ function App() {
       <RightComponent>
 <PDFViewer  width={'600px'}>
   
-   <MyDocument userDetails={userDetails} />
+   <MyDocument userDetails={userDetails} summary={userSummary}/>
   
   </PDFViewer>
   
