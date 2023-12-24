@@ -6,6 +6,9 @@ import CardContent from '@mui/material/CardContent';
 import UserHeaderData from './UserHeaderData';
 import UserInfoInputSection from '../InputComponents/UserInfo/UserInfoInputSection';
 import UserSummarySection from '../InputComponents/Summary/SummarySection';
+import SkillsSection from './Skills/SkillsSection';
+import UsersSkillsSection from '../InputComponents/Skills/SkillsSection';
+import RecipeReviewCard from '../InputComponents/UserInfo/RecipeReviewCard';
 
 
 
@@ -15,7 +18,7 @@ export default function FormCard() {
  
 
   return (
-    <Card  sx={{ maxWidth: 345 }}>
+    <Card  sx={{ maxWidth: '100%',width:'100%',overflow:'auto',height:'140vh',boxShadow:'none' }}>
       <CardHeader
        
        
@@ -24,8 +27,9 @@ export default function FormCard() {
       />
     
       <CardContent>
-     <UserInfoInputSection/>
+  <RecipeReviewCard/>
      <UserSummarySection/>
+     <UsersSkillsSection/>
       </CardContent>
      
      

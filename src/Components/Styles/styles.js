@@ -10,8 +10,8 @@ display: flex;
 
 export const LeftCmponent = styled.div`
 display: flex;
-width: 40%;
-border: 2px solid red;
+width: 60%;
+
 margin: 10px;
 `;
 
@@ -20,5 +20,5 @@ display: flex;
 width: 40%;
 margin: 10px;
 height:100vh;
-border: 2px solid red;
+
 `;

@@ -5,7 +5,7 @@ import PublishIcon from '@mui/icons-material/Publish';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
 import {updateUserIfo}  from "../../feature/Slices/userSlice"
-
+import AutoAwesomeTwoToneIcon from '@mui/icons-material/AutoAwesomeTwoTone';
 export default function UserInfoInputSection() {
   const dispatch = useDispatch();
   const [formData, setFormData] = React.useState({
@@ -72,7 +72,9 @@ export default function UserInfoInputSection() {
     <Box
       component="form"
       sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
+        '& > :not(style)': { m: 1, width: '25ch',
+        '& .Mui-focused':{color:'black',borderColor:'black'}
+      },
       }}
       noValidate
       autoComplete="off"
@@ -128,9 +130,19 @@ export default function UserInfoInputSection() {
         error={!!errors.displayText}
         helperText={errors.displayText}
       />
-      <IconButton aria-label="Submit" onClick={handleOnClick}>
-        <PublishIcon />
+     <div>
+      <IconButton aria-label="Submit" onClick={handleOnClick} style={{
+            fontSize: '16px',
+            color: '#ffeeee',
+            background: 'black',
+            borderRadius: '12px'
+      }}>
+      
+       Update <AutoAwesomeTwoToneIcon />
       </IconButton>
-    </Box>
+      </div>
+      
+      </Box>
+      
   );
 }
