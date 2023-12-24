@@ -9,6 +9,7 @@ const initialState = {
         email: '',
         linkedInURL: '',
         displayText: '',
+        nextSection:false,
     },
     userSummary:'',
     error:''

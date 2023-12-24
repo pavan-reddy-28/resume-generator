@@ -7,9 +7,10 @@ import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import UserInfoInputSection from './UserInfoInputSection';
-import PersonIcon from '@mui/icons-material/Person';
 
+import PersonIcon from '@mui/icons-material/Person';
+import UserSummarySection from './SummarySection';
+import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton style={{ height: '60px', width: '60px' , color:'white'}} {...other} />;
@@ -31,7 +32,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
   },
 }));
 
-export default function RecipeReviewCard() {
+export default function SummaryCard() {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -44,7 +45,7 @@ export default function RecipeReviewCard() {
       style={{background:'black'}}
         avatar={
           <Avatar sx={{ bgcolor: 'black' }} aria-label="recipe">
-            <PersonIcon />
+            <SummarizeOutlinedIcon />
           </Avatar>
         }
         action={
@@ -57,11 +58,11 @@ export default function RecipeReviewCard() {
             <ExpandMoreIcon />
           </ExpandMore>
         }
-        title={<h3 style={{color:'white'}}>Candidate Basic Info Section</h3>}
+        title={<h3 style={{color:'white'}}>{'Summary Sectiion [ Optional ]'}</h3>}
       />
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <UserInfoInputSection handleExpandClick={handleExpandClick} />
+          <UserSummarySection handler={handleExpandClick} />
         </CardContent>
       </Collapse>
     </StyledCard>

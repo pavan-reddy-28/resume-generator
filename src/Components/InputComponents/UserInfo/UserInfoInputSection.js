@@ -6,14 +6,15 @@ import IconButton from '@mui/material/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
 import {updateUserIfo}  from "../../feature/Slices/userSlice"
 import AutoAwesomeTwoToneIcon from '@mui/icons-material/AutoAwesomeTwoTone';
-export default function UserInfoInputSection() {
+export default function UserInfoInputSection({handleExpandClick}) {
   const dispatch = useDispatch();
+  const{name,contact,email,linkedInURL,displayText} =  useSelector(state=>state.user.userDetails);
   const [formData, setFormData] = React.useState({
-    name: '',
-    contact: '',
-    email: '',
-    linkedInURL: '',
-    displayText: '',
+    name: name,
+    contact: contact,
+    email: email,
+    linkedInURL: linkedInURL,
+    displayText: displayText,
   });
 
   const [errors, setErrors] = React.useState({
@@ -63,8 +64,8 @@ export default function UserInfoInputSection() {
     if(hasError){
         
     }else{
-      dispatch( updateUserIfo({...formData}))
-      alert("form submiteed succesfully");
+      dispatch( updateUserIfo({...formData, nextSection:true,}))
+      handleExpandClick()
     } 
   }
 
@@ -72,7 +73,7 @@ export default function UserInfoInputSection() {
     <Box
       component="form"
       sx={{
-        '& > :not(style)': { m: 1, width: '25ch',
+        '& > :not(style)': { m: 2, width: '30ch',
         '& .Mui-focused':{color:'black',borderColor:'black'}
       },
       }}
@@ -131,7 +132,7 @@ export default function UserInfoInputSection() {
         helperText={errors.displayText}
       />
      <div>
-      <IconButton aria-label="Submit" onClick={handleOnClick} style={{
+      <IconButton aria-label="Update" onClick={handleOnClick} style={{
             fontSize: '16px',
             color: '#ffeeee',
             background: 'black',

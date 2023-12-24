@@ -9,8 +9,9 @@ import UserSummarySection from '../InputComponents/Summary/SummarySection';
 import SkillsSection from './Skills/SkillsSection';
 import UsersSkillsSection from '../InputComponents/Skills/SkillsSection';
 import RecipeReviewCard from '../InputComponents/UserInfo/RecipeReviewCard';
-
-
+import SummaryCard from '../InputComponents/Summary/SummaryCard';
+import AddIcon from '@mui/icons-material/Add';
+import IconButton from '@mui/material/IconButton';
 
 export default function FormCard() {
   
@@ -18,7 +19,7 @@ export default function FormCard() {
  
 
   return (
-    <Card  sx={{ maxWidth: '100%',width:'100%',overflow:'auto',height:'140vh',boxShadow:'none' }}>
+    <Card  sx={{ maxWidth: '100%',width:'100%',overflow:'auto',height:'140vh',boxShadow:'none',background:'transparent' }}>
       <CardHeader
        
        
@@ -28,8 +29,21 @@ export default function FormCard() {
     
       <CardContent>
   <RecipeReviewCard/>
-     <UserSummarySection/>
-     <UsersSkillsSection/>
+  <br/>
+  <SummaryCard/>
+     <br/>
+     <div>
+     <IconButton aria-label="Update" onClick={()=>{}} style={{
+            fontSize: '24px',
+            color: '#ffeeee',
+            background: 'black',
+            borderRadius: '30px',
+            padding:'16px'
+      }}>
+      
+        Section <AddIcon />
+      </IconButton>
+     </div>
       </CardContent>
      
      

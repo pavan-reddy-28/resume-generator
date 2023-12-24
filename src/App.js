@@ -25,11 +25,11 @@ function App() {
   </PDFViewer>
   
       </RightComponent>
-      <PDFDownloadLink document={<MyDocument  userDetails={userDetails} />} fileName="somename.pdf">
+      {/* <PDFDownloadLink document={<MyDocument  userDetails={userDetails} />} fileName="somename.pdf">
       {({ blob, url, loading, error }) =>
         loading ? 'Loading document...' : 'Download now!'
       }
-    </PDFDownloadLink>
+    </PDFDownloadLink> */}
      </MainComponent>
     </div>
   );

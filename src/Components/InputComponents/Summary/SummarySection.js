@@ -5,11 +5,13 @@ import PublishIcon from '@mui/icons-material/Publish';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserIfo, updateUserSummary } from '../../feature/Slices/userSlice';
-
-export default function UserSummarySection() {
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import AutoAwesomeTwoToneIcon from '@mui/icons-material/AutoAwesomeTwoTone';
+export default function UserSummarySection({handler}) {
   const dispatch = useDispatch();
+  const{userSummary}= useSelector(state=>state.user)
   const [formData, setFormData] = React.useState({
-    summary: ''
+    summary: userSummary
   });
 
   const [errors, setErrors] = React.useState({
@@ -27,7 +29,10 @@ export default function UserSummarySection() {
       [name]: ''
     }));
   };
-
+  const handleRemoveSummary = () =>{
+    dispatch(  updateUserSummary(''));
+    handler();
+  }
   const handleOnClick = () => {
     let newErrors = {};
     newErrors = {
@@ -40,8 +45,8 @@ export default function UserSummarySection() {
       ...newErrors
     });
     if (!newErrors.summary) {
-      dispatch(  updateUserSummary(formData.summary))
-      alert('Form submitted successfully');
+      dispatch(  updateUserSummary(formData.summary));
+      handler();
     }
   };
 
@@ -49,7 +54,7 @@ export default function UserSummarySection() {
     <Box
       component="form"
       sx={{
-        '& > :not(style)': { m: 1, width: '100%' }
+        '& > :not(style)': { m: 1,width: '100%' }
       }}
       noValidate
       autoComplete="off"
@@ -59,21 +64,39 @@ export default function UserSummarySection() {
         minRows={4}
         value={formData.summary}
         name="summary"
-        id="summary"
+        id="standard-basic"
         label="Summary"
+        variant="standard"
+        rows={4}
+
         
-
-
-         variant="filled"
 
         onChange={handleOnChange}
         error={!!errors.summary}
         helperText={errors.summary}
       />
-
-      <IconButton aria-label="Submit" onClick={handleOnClick}>
-        <PublishIcon />
+<div>
+<IconButton aria-label="Update" onClick={handleOnClick} style={{
+            fontSize: '16px',
+            color: '#ffeeee',
+            background: 'black',
+            borderRadius: '12px',
+            margin:'4px',
+            width:'auto'
+      }}>
+       {'Update '} <AutoAwesomeTwoToneIcon />
       </IconButton>
+      <IconButton aria-label="Update" onClick={handleRemoveSummary} style={{
+            fontSize: '16px',
+            color: '#ffeeee',
+            background: 'black',
+            borderRadius: '12px',
+            margin:'4px',
+            width:'auto'
+      }}>
+       {'Remove Summary '}<DeleteForeverIcon />
+      </IconButton>
+      </div>
     </Box>
   );
 }
