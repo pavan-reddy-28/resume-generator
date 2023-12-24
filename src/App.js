@@ -4,6 +4,7 @@ import { MyDocument } from './Components/PdfComponent/MyDocument';
 import FormCard from './Components/PdfComponent/FormCard';
 import { Provider, useSelector } from 'react-redux';
 import UploadComponent from './Components/DisplayComponent/UploadComponent';
+import Header from './Components/Header/Header';
 
 
 
@@ -12,6 +13,7 @@ function App() {
   
   return (
     <div className="App">
+      <Header/>
      <MainComponent>
       <LeftCmponent>
         {/* <UploadComponent/> */}

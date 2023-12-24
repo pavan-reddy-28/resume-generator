@@ -23,7 +23,7 @@ export default function FormCard() {
       <CardHeader
        
        
-        title="User Details"
+
        
       />
     
